@@ -8,7 +8,7 @@ ENDCOLOR="\e[0m"
 
 # Check if directory exists
 if [ -d "studij" ]; then
-    echo -e "${RED}Mapa studij že obstaja. Mapa bo v celoti izbrisana :(${ENDCOLOR}" # print message
+    echo -e "${RED}Mapa studij že obstaja. Mapa bo v celoti izbrisana${ENDCOLOR}" # print message
     rm -R "studij" # remove directory 
 fi
 
@@ -30,13 +30,10 @@ while read line; do # read file line by line
     cd .. # exit directory 
 done < <(curl -s "$gist_url") # read file from url
 
-echo -e "${GREEN}Uspešno ustvarjena struktura map :)${ENDCOLOR}" # print message
+echo -e "${GREEN}Uspešno ustvarjena struktura map${ENDCOLOR}" # print message
 
-# Tree command
-echo -e "" # print message
-echo -e "" # print message
-echo -e "${BLUE}Struktura map:${ENDCOLOR}" # print message
-
+# Tree
+echo -e "${BLUE}Struktura map:${ENDCOLOR}" # print message 
 find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" # print tree
 
 # Path: skripta.sh
@@ -45,8 +42,9 @@ find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" # print tree
 # Prenos iz lokalne naprave na strežnik:
 # scp C:\laragon\oikt\skripta.sh patrick@192.168.201.128:/home/patrick/
 
+# Deploy na strežnik:
+# $ bash skripta.sh
+
 # Vir za barve: https://dev.to/ifenna__/adding-colors-to-bash-scripts-48g4
 
-# Vir za izpis drevesa: https://stackoverflow.com/questions/3455625/linux-command-to-print-directory-structure-in-the-form-of-a-tree
-
-
+# Vir za tree: https://stackoverflow.com/a/61073579
