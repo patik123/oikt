@@ -1,6 +1,5 @@
 gist_url="https://gist.githubusercontent.com/patik123/e9261bea9adbd8e87a96e622988dcdfb/raw/3f89b929d38d170edfae109d33c32c206fe1f4bc/predmeti.txt"
 
-
 RED="\e[31m"
 GREEN="\e[32m"
 BLUE="\e[34m"
@@ -9,7 +8,7 @@ ENDCOLOR="\e[0m"
 
 # Check if directory exists
 if [ -d "studij" ]; then
-    echo -e "${RED}Mapa studij že obstaja. Mapa bo v celoti izbrisana${ENDCOLOR}" # print message
+    echo -e "${RED}Mapa studij že obstaja. Mapa bo v celoti izbrisana :(${ENDCOLOR}" # print message
     rm -R "studij" # remove directory 
 fi
 
@@ -31,7 +30,14 @@ while read line; do # read file line by line
     cd .. # exit directory 
 done < <(curl -s "$gist_url") # read file from url
 
-echo -e "${GREEN}Uspešno ustvarjena struktura map${ENDCOLOR}" # print message
+echo -e "${GREEN}Uspešno ustvarjena struktura map :)${ENDCOLOR}" # print message
+
+# Tree command
+echo -e "" # print message
+echo -e "" # print message
+echo -e "${BLUE}Struktura map:${ENDCOLOR}" # print message
+
+find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 
 # Path: skripta.sh
 
