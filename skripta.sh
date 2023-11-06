@@ -37,7 +37,7 @@ echo -e "" # print message
 echo -e "" # print message
 echo -e "${BLUE}Struktura map:${ENDCOLOR}" # print message
 
-find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" # print tree
 
 # Path: skripta.sh
 
@@ -46,5 +46,7 @@ find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 # scp C:\laragon\oikt\skripta.sh patrick@192.168.201.128:/home/patrick/
 
 # Vir za barve: https://dev.to/ifenna__/adding-colors-to-bash-scripts-48g4
+
+# Vir za izpis drevesa: https://stackoverflow.com/questions/3455625/linux-command-to-print-directory-structure-in-the-form-of-a-tree
 
 
